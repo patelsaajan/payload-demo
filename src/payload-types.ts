@@ -103,10 +103,12 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    'theme-settings': ThemeSetting;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    'theme-settings': ThemeSettingsSelect<false> | ThemeSettingsSelect<true>;
   };
   locale: null;
   user: User & {
@@ -1619,6 +1621,31 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "theme-settings".
+ */
+export interface ThemeSetting {
+  id: number;
+  /**
+   * Primary brand color (e.g., #3B82F6 or rgb(59, 130, 246))
+   */
+  primaryColor?: string | null;
+  /**
+   * Secondary brand color (e.g., #8B5CF6 or rgb(139, 92, 246))
+   */
+  secondaryColor?: string | null;
+  /**
+   * Action/CTA color (e.g., #10B981 or rgb(16, 185, 129))
+   */
+  actionColor?: string | null;
+  /**
+   * Background color (e.g., #FFFFFF or rgb(255, 255, 255))
+   */
+  backgroundColor?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -1660,6 +1687,19 @@ export interface FooterSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "theme-settings_select".
+ */
+export interface ThemeSettingsSelect<T extends boolean = true> {
+  primaryColor?: T;
+  secondaryColor?: T;
+  actionColor?: T;
+  backgroundColor?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
