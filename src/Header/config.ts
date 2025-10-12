@@ -16,6 +16,14 @@ export const Header: GlobalConfig = {
         link({
           appearances: false,
         }),
+        {
+          name: 'icon',
+          type: 'text',
+          required: false,
+          admin: {
+            description: 'Icon string for this navigation item',
+          },
+        },
       ],
       maxRows: 6,
       admin: {
