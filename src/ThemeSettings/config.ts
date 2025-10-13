@@ -9,6 +9,15 @@ export const ThemeSettings: GlobalConfig = {
   },
   fields: [
     {
+      name: 'resetDefaults',
+      type: 'ui',
+      admin: {
+        components: {
+          Field: '@/ThemeSettings/components/ResetDefaults#ResetDefaults',
+        },
+      },
+    },
+    {
       name: 'primaryColor',
       type: 'text',
       required: false,
@@ -25,11 +34,11 @@ export const ThemeSettings: GlobalConfig = {
       },
     },
     {
-      name: 'actionColor',
+      name: 'accentColor',
       type: 'text',
       required: false,
       admin: {
-        description: 'Action/CTA color (e.g., #10B981 or rgb(16, 185, 129))',
+        description: 'Accent/CTA color (e.g., #10B981 or rgb(16, 185, 129))',
       },
     },
     {
@@ -41,11 +50,52 @@ export const ThemeSettings: GlobalConfig = {
       },
     },
     {
+      name: 'textColor',
+      type: 'text',
+      required: false,
+      admin: {
+        description: 'Text color (e.g., #000 or rgb(0, 0, 0))',
+      },
+    },
+    {
+      name: 'primaryTextColor',
+      type: 'text',
+      required: false,
+      admin: {
+        description: 'Text color (e.g., #000 or rgb(0, 0, 0))',
+      },
+    },
+    {
+      name: 'secondaryTextColor',
+      type: 'text',
+      required: false,
+      admin: {
+        description: 'Text color (e.g., #000 or rgb(0, 0, 0))',
+      },
+    },
+    {
+      name: 'borderRadius',
+      type: 'text',
+      required: false,
+      admin: {
+        description: 'Border radius for buttons and UI elements (e.g., 6px, 0.5rem, 12px)',
+      },
+    },
+    {
       name: 'colorPreview',
       type: 'ui',
       admin: {
         components: {
           Field: '@/ThemeSettings/components/ColorPreview#ColorPreview',
+        },
+      },
+    },
+    {
+      name: 'buttonPreview',
+      type: 'ui',
+      admin: {
+        components: {
+          Field: '@/ThemeSettings/components/ButtonPreview#ButtonPreview',
         },
       },
     },

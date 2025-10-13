@@ -1,4 +1,5 @@
 import type { CollectionSlug, GlobalSlug, Payload, PayloadRequest, File } from 'payload'
+import type { Header, Footer } from '@/payload-types'
 
 import { contactForm as contactFormData } from './contact-form'
 import { contact as contactPageData } from './contact-page'
@@ -50,7 +51,7 @@ export const seed = async ({
         slug: global,
         data: {
           navItems: [],
-        },
+        } as Partial<Header> | Partial<Footer>,
         depth: 0,
         context: {
           disableRevalidate: true,

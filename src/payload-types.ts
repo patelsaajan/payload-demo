@@ -1634,13 +1634,29 @@ export interface ThemeSetting {
    */
   secondaryColor?: string | null;
   /**
-   * Action/CTA color (e.g., #10B981 or rgb(16, 185, 129))
+   * Accent/CTA color (e.g., #10B981 or rgb(16, 185, 129))
    */
-  actionColor?: string | null;
+  accentColor?: string | null;
   /**
    * Background color (e.g., #FFFFFF or rgb(255, 255, 255))
    */
   backgroundColor?: string | null;
+  /**
+   * Text color (e.g., #000 or rgb(0, 0, 0))
+   */
+  textColor?: string | null;
+  /**
+   * Text color (e.g., #000 or rgb(0, 0, 0))
+   */
+  primaryTextColor?: string | null;
+  /**
+   * Text color (e.g., #000 or rgb(0, 0, 0))
+   */
+  secondaryTextColor?: string | null;
+  /**
+   * Border radius for buttons and UI elements (e.g., 6px, 0.5rem, 12px)
+   */
+  borderRadius?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1698,8 +1714,12 @@ export interface FooterSelect<T extends boolean = true> {
 export interface ThemeSettingsSelect<T extends boolean = true> {
   primaryColor?: T;
   secondaryColor?: T;
-  actionColor?: T;
+  accentColor?: T;
   backgroundColor?: T;
+  textColor?: T;
+  primaryTextColor?: T;
+  secondaryTextColor?: T;
+  borderRadius?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
