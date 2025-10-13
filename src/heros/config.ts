@@ -2,7 +2,6 @@ import type { Field } from 'payload'
 
 import {
   FixedToolbarFeature,
-  HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
@@ -16,7 +15,7 @@ export const hero: Field = {
     {
       name: 'type',
       type: 'select',
-      defaultValue: 'lowImpact',
+      defaultValue: 'contentOnly',
       label: 'Type',
       options: [
         {
@@ -24,48 +23,59 @@ export const hero: Field = {
           value: 'none',
         },
         {
-          label: 'High Impact',
-          value: 'highImpact',
+          label: 'Content Only',
+          value: 'contentOnly',
         },
         {
-          label: 'Medium Impact',
-          value: 'mediumImpact',
-        },
-        {
-          label: 'Low Impact',
-          value: 'lowImpact',
+          label: '50/50 Split (Content + Image)',
+          value: 'splitContentImage',
         },
       ],
       required: true,
     },
     {
-      name: 'richText',
+      name: 'heading',
+      type: 'text',
+      label: 'Heading',
+      required: true,
+      admin: {
+        condition: (_, { type } = {}) => ['splitContentImage', 'contentOnly'].includes(type),
+      },
+    },
+    {
+      name: 'text',
       type: 'richText',
+      label: 'Text',
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
           return [
             ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
             FixedToolbarFeature(),
             InlineToolbarFeature(),
           ]
         },
       }),
-      label: false,
+      admin: {
+        condition: (_, { type } = {}) => ['splitContentImage', 'contentOnly'].includes(type),
+      },
     },
     linkGroup({
       overrides: {
         maxRows: 2,
+        admin: {
+          condition: (_, { type } = {}) => ['splitContentImage', 'contentOnly'].includes(type),
+        },
       },
     }),
     {
       name: 'media',
       type: 'upload',
+      label: 'Image',
       admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
+        condition: (_, { type } = {}) => type === 'splitContentImage',
       },
       relationTo: 'media',
-      required: true,
+      required: false,
     },
   ],
   label: false,

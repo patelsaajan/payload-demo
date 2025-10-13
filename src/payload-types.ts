@@ -151,8 +151,9 @@ export interface Page {
   id: number;
   title: string;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
-    richText?: {
+    type: 'none' | 'contentOnly' | 'splitContentImage';
+    heading?: string | null;
+    text?: {
       root: {
         type: string;
         children: {
@@ -1010,7 +1011,8 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
-        richText?: T;
+        heading?: T;
+        text?: T;
         links?:
           | T
           | {
