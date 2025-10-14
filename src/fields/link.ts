@@ -2,28 +2,24 @@ import type { Field, GroupField } from 'payload'
 
 import deepMerge from '@/utilities/deepMerge'
 
-export type LinkAppearances = 'default' | 'primary' | 'secondary' | 'accent' | 'outline'
+export type LinkAppearances = 'default' | 'outline' | 'link' | 'ghost'
 
 export const appearanceOptions: Record<LinkAppearances, { label: string; value: string }> = {
   default: {
     label: 'Default',
     value: 'default',
   },
-  primary: {
-    label: 'Primary',
-    value: 'primary',
-  },
-  secondary: {
-    label: 'Secondary',
-    value: 'secondary',
-  },
-  accent: {
-    label: 'Accent',
-    value: 'accent',
-  },
   outline: {
     label: 'Outline',
     value: 'outline',
+  },
+  link: {
+    label: 'Link',
+    value: 'link',
+  },
+  ghost: {
+    label: 'Ghost',
+    value: 'ghost',
   },
 }
 
@@ -130,7 +126,7 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
   }
 
   if (appearances !== false) {
-    let appearanceOptionsToUse = [appearanceOptions.default, appearanceOptions.primary, appearanceOptions.secondary, appearanceOptions.accent, appearanceOptions.outline]
+    let appearanceOptionsToUse = [appearanceOptions.default, appearanceOptions.outline, appearanceOptions.link, appearanceOptions.ghost]
 
     if (appearances) {
       appearanceOptionsToUse = appearances.map((appearance) => appearanceOptions[appearance])
