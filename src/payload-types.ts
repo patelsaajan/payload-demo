@@ -187,7 +187,7 @@ export interface Page {
             /**
              * Choose how the link should be rendered.
              */
-            appearance?: ('default' | 'outline') | null;
+            appearance?: ('default' | 'primary' | 'secondary' | 'accent' | 'outline') | null;
           };
           id?: string | null;
         }[]
@@ -493,7 +493,7 @@ export interface ContentBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline') | null;
+          appearance?: ('default' | 'primary' | 'secondary' | 'accent' | 'outline') | null;
         };
         id?: string | null;
       }[]
