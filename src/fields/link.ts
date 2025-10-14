@@ -23,6 +23,23 @@ export const appearanceOptions: Record<LinkAppearances, { label: string; value: 
   },
 }
 
+export type LinkColors = 'primary' | 'secondary' | 'accent'
+
+export const colorOptions: Record<LinkColors, { label: string; value: string }> = {
+  primary: {
+    label: 'Primary',
+    value: 'primary',
+  },
+  secondary: {
+    label: 'Secondary',
+    value: 'secondary',
+  },
+  accent: {
+    label: 'Accent',
+    value: 'accent',
+  },
+}
+
 type LinkType = (options?: {
   appearances?: LinkAppearances[] | false
   disableLabel?: boolean
@@ -133,13 +150,29 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
     }
 
     linkResult.fields.push({
-      name: 'appearance',
-      type: 'select',
-      admin: {
-        description: 'Choose how the link should be rendered.',
-      },
-      defaultValue: 'default',
-      options: appearanceOptionsToUse,
+      type: 'row',
+      fields: [
+        {
+          name: 'appearance',
+          type: 'select',
+          admin: {
+            description: 'Choose how the link should be rendered.',
+            width: '50%',
+          },
+          defaultValue: 'default',
+          options: appearanceOptionsToUse,
+        },
+        {
+          name: 'color',
+          type: 'select',
+          admin: {
+            description: 'Choose the color scheme.',
+            width: '50%',
+          },
+          defaultValue: 'primary',
+          options: [colorOptions.primary, colorOptions.secondary, colorOptions.accent],
+        },
+      ],
     })
   }
 

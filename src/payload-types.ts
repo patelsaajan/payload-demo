@@ -188,6 +188,10 @@ export interface Page {
              * Choose how the link should be rendered.
              */
             appearance?: ('default' | 'outline' | 'link' | 'ghost') | null;
+            /**
+             * Choose the color scheme.
+             */
+            color?: ('primary' | 'secondary' | 'accent') | null;
           };
           id?: string | null;
         }[]
@@ -444,6 +448,10 @@ export interface CallToActionBlock {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline') | null;
+          /**
+           * Choose the color scheme.
+           */
+          color?: ('primary' | 'secondary' | 'accent') | null;
         };
         id?: string | null;
       }[]
@@ -494,6 +502,10 @@ export interface ContentBlock {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline' | 'link' | 'ghost') | null;
+          /**
+           * Choose the color scheme.
+           */
+          color?: ('primary' | 'secondary' | 'accent') | null;
         };
         id?: string | null;
       }[]
@@ -1025,6 +1037,7 @@ export interface PagesSelect<T extends boolean = true> {
                     url?: T;
                     label?: T;
                     appearance?: T;
+                    color?: T;
                   };
               id?: T;
             };
@@ -1071,6 +1084,7 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
               url?: T;
               label?: T;
               appearance?: T;
+              color?: T;
             };
         id?: T;
       };
@@ -1097,6 +1111,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
               url?: T;
               label?: T;
               appearance?: T;
+              color?: T;
             };
         id?: T;
       };
