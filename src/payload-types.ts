@@ -197,6 +197,8 @@ export interface Page {
         }[]
       | null;
     media?: (number | null) | Media;
+    imagePositionDesktop?: ('left' | 'right') | null;
+    imagePositionMobile?: ('top' | 'bottom') | null;
   };
   layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
   meta?: {
@@ -1042,6 +1044,8 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
             };
         media?: T;
+        imagePositionDesktop?: T;
+        imagePositionMobile?: T;
       };
   layout?:
     | T

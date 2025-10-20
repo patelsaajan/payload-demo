@@ -77,6 +77,44 @@ export const hero: Field = {
       relationTo: 'media',
       required: false,
     },
+    {
+      name: 'imagePositionDesktop',
+      type: 'select',
+      label: 'Image Position (Desktop)',
+      defaultValue: 'right',
+      options: [
+        {
+          label: 'Left',
+          value: 'left',
+        },
+        {
+          label: 'Right',
+          value: 'right',
+        },
+      ],
+      admin: {
+        condition: (_, { type } = {}) => type === 'splitContentImage',
+      },
+    },
+    {
+      name: 'imagePositionMobile',
+      type: 'select',
+      label: 'Image Position (Mobile)',
+      defaultValue: 'top',
+      options: [
+        {
+          label: 'Top',
+          value: 'top',
+        },
+        {
+          label: 'Bottom',
+          value: 'bottom',
+        },
+      ],
+      admin: {
+        condition: (_, { type } = {}) => type === 'splitContentImage',
+      },
+    },
   ],
   label: false,
 }
