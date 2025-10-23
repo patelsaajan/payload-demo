@@ -152,6 +152,7 @@ export interface Page {
   title: string;
   hero: {
     type: 'none' | 'contentOnly' | 'splitContentImage';
+    backgroundColor?: ('primary' | 'secondary' | 'accent' | 'background') | null;
     heading?: string | null;
     text?: {
       root: {
@@ -1025,6 +1026,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
+        backgroundColor?: T;
         heading?: T;
         text?: T;
         links?:

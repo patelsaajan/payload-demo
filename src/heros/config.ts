@@ -34,6 +34,33 @@ export const hero: Field = {
       required: true,
     },
     {
+      name: 'backgroundColor',
+      type: 'select',
+      defaultValue: 'background',
+      label: 'Hero Background Colour',
+      options: [
+        {
+          label: 'Primary',
+          value: 'primary',
+        },
+        {
+          label: 'Secondary',
+          value: 'secondary',
+        },
+        {
+          label: 'Accent',
+          value: 'accent',
+        },
+        {
+          label: 'Background',
+          value: 'background',
+        },
+      ],
+      admin: {
+        condition: (_, { type } = {}) => ['splitContentImage', 'contentOnly'].includes(type),
+      },
+    },
+    {
       name: 'heading',
       type: 'text',
       label: 'Heading',
