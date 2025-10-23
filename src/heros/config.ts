@@ -61,6 +61,49 @@ export const hero: Field = {
       },
     },
     {
+      name: 'backgroundColorPreview',
+      type: 'ui',
+      admin: {
+        components: {
+          Field: '@/heros/components/BackgroundColorPreview#BackgroundColorPreview',
+        },
+        condition: (_, { type } = {}) => ['splitContentImage', 'contentOnly'].includes(type),
+      },
+    },
+    {
+      name: 'textColor',
+      type: 'select',
+      defaultValue: 'text',
+      label: 'Text Colour',
+      options: [
+        {
+          label: 'Text',
+          value: 'text',
+        },
+        {
+          label: 'Primary Text',
+          value: 'primaryText',
+        },
+        {
+          label: 'Secondary Text',
+          value: 'secondaryText',
+        },
+      ],
+      admin: {
+        condition: (_, { type } = {}) => ['splitContentImage', 'contentOnly'].includes(type),
+      },
+    },
+    {
+      name: 'textColorPreview',
+      type: 'ui',
+      admin: {
+        components: {
+          Field: '@/heros/components/TextColorPreview#TextColorPreview',
+        },
+        condition: (_, { type } = {}) => ['splitContentImage', 'contentOnly'].includes(type),
+      },
+    },
+    {
       name: 'heading',
       type: 'text',
       label: 'Heading',

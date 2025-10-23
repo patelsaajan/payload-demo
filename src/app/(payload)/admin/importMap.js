@@ -1,3 +1,5 @@
+import { BackgroundColorPreview as BackgroundColorPreview_1448a773f516b8699bcd2eeac08c6653 } from '@/heros/components/BackgroundColorPreview'
+import { TextColorPreview as TextColorPreview_f3fcedc86ce04d30263ca9f61c825d3f } from '@/heros/components/TextColorPreview'
 import { RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { LexicalDiffComponent as LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
@@ -28,6 +30,8 @@ import { default as default_1a7510af427896d367a49dbf838d2de6 } from '@/component
 import { default as default_8a7ab0eb7ab5c511aba12e68480bfe5e } from '@/components/BeforeLogin'
 
 export const importMap = {
+  "@/heros/components/BackgroundColorPreview#BackgroundColorPreview": BackgroundColorPreview_1448a773f516b8699bcd2eeac08c6653,
+  "@/heros/components/TextColorPreview#TextColorPreview": TextColorPreview_f3fcedc86ce04d30263ca9f61c825d3f,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalField": RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#LexicalDiffComponent": LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e,
