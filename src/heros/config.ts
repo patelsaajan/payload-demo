@@ -61,16 +61,6 @@ export const hero: Field = {
       },
     },
     {
-      name: 'backgroundColorPreview',
-      type: 'ui',
-      admin: {
-        components: {
-          Field: '@/heros/components/BackgroundColorPreview#BackgroundColorPreview',
-        },
-        condition: (_, { type } = {}) => ['splitContentImage', 'contentOnly'].includes(type),
-      },
-    },
-    {
       name: 'textColor',
       type: 'select',
       defaultValue: 'text',
@@ -94,11 +84,11 @@ export const hero: Field = {
       },
     },
     {
-      name: 'textColorPreview',
+      name: 'colorPreview',
       type: 'ui',
       admin: {
         components: {
-          Field: '@/heros/components/TextColorPreview#TextColorPreview',
+          Field: '@/heros/components/ColorPreview#ColorPreview',
         },
         condition: (_, { type } = {}) => ['splitContentImage', 'contentOnly'].includes(type),
       },
