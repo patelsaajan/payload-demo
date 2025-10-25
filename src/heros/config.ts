@@ -30,6 +30,10 @@ export const hero: Field = {
           label: '50/50 Split (Content + Image)',
           value: 'splitContentImage',
         },
+        {
+          label: 'Image Only',
+          value: 'imageOnly',
+        },
       ],
       required: true,
     },
@@ -132,7 +136,7 @@ export const hero: Field = {
       type: 'upload',
       label: 'Image',
       admin: {
-        condition: (_, { type } = {}) => type === 'splitContentImage',
+        condition: (_, { type } = {}) => ['splitContentImage', 'imageOnly'].includes(type),
       },
       relationTo: 'media',
       required: false,

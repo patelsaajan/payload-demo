@@ -151,7 +151,7 @@ export interface Page {
   id: number;
   title: string;
   hero: {
-    type: 'none' | 'contentOnly' | 'splitContentImage';
+    type: 'none' | 'contentOnly' | 'splitContentImage' | 'imageOnly';
     backgroundColor?: ('primary' | 'secondary' | 'accent' | 'background') | null;
     textColor?: ('text' | 'primaryText' | 'secondaryText') | null;
     heading?: string | null;
