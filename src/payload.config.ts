@@ -15,6 +15,7 @@ import { Users } from './collections/Users'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { ThemeSettings } from './ThemeSettings/config'
+import { Branding } from './branding/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
@@ -68,7 +69,7 @@ export default buildConfig({
   }),
   collections: [Pages, Posts, CaseStudies, Media, Categories, Users],
   cors: [getServerSideURL(), 'http://localhost:3000'].filter(Boolean),
-  globals: [Header, Footer, ThemeSettings],
+  globals: [Header, Footer, ThemeSettings, Branding],
   plugins: [
     ...plugins,
     // storage-adapter-placeholder

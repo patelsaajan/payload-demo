@@ -106,11 +106,13 @@ export interface Config {
     header: Header;
     footer: Footer;
     'theme-settings': ThemeSetting;
+    'branding-settings': BrandingSetting;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     'theme-settings': ThemeSettingsSelect<false> | ThemeSettingsSelect<true>;
+    'branding-settings': BrandingSettingsSelect<false> | BrandingSettingsSelect<true>;
   };
   locale: null;
   user: User & {
@@ -1818,6 +1820,35 @@ export interface ThemeSetting {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "branding-settings".
+ */
+export interface BrandingSetting {
+  id: number;
+  /**
+   * Add your social media links with custom icons from Iconify
+   */
+  socials?:
+    | {
+        /**
+         * Name of the social platform (e.g., Instagram, Twitter, LinkedIn)
+         */
+        name: string;
+        /**
+         * Iconify icon name (e.g., mdi:instagram, simple-icons:twitter, bi:linkedin)
+         */
+        icon: string;
+        /**
+         * Full URL to your social media profile
+         */
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -1876,6 +1907,23 @@ export interface ThemeSettingsSelect<T extends boolean = true> {
   primaryTextColor?: T;
   secondaryTextColor?: T;
   borderRadius?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "branding-settings_select".
+ */
+export interface BrandingSettingsSelect<T extends boolean = true> {
+  socials?:
+    | T
+    | {
+        name?: T;
+        icon?: T;
+        url?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
