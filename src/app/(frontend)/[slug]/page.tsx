@@ -11,8 +11,14 @@ import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { isDatabaseAvailable } from '@/utilities/isDatabaseAvailable'
 
 export async function generateStaticParams() {
+  // Skip static generation if database is not available (e.g., during Docker builds)
+  if (!isDatabaseAvailable()) {
+    return []
+  }
+
   const payload = await getPayload({ config: configPromise })
   const pages = await payload.find({
     collection: 'pages',

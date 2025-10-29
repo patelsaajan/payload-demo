@@ -8,6 +8,7 @@ import { getPayload } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
 import { notFound } from 'next/navigation'
+import { isDatabaseAvailable } from '@/utilities/isDatabaseAvailable'
 
 export const revalidate = 600
 
@@ -70,6 +71,11 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 }
 
 export async function generateStaticParams() {
+  // Skip static generation if database is not available (e.g., during Docker builds)
+  if (!isDatabaseAvailable()) {
+    return []
+  }
+
   const payload = await getPayload({ config: configPromise })
   const { totalDocs } = await payload.count({
     collection: 'posts',
