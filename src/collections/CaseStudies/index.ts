@@ -15,7 +15,7 @@ import { Banner } from '../../blocks/Banner/config'
 import { Code } from '../../blocks/Code/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { revalidateCaseStudy } from './hooks/revalidateCaseStudy'
+import { revalidateCaseStudy, revalidateDelete } from './hooks/revalidateCaseStudy'
 
 import {
   MetaDescriptionField,
@@ -170,7 +170,7 @@ export const CaseStudies: CollectionConfig<'case-studies'> = {
   ],
   hooks: {
     afterChange: [revalidateCaseStudy],
-    afterDelete: [revalidateCaseStudy],
+    afterDelete: [revalidateDelete],
   },
   versions: {
     drafts: {
