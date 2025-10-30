@@ -33,7 +33,7 @@ COPY . .
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
   elif [ -f package-lock.json ]; then npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm config set enable-pre-post-scripts false && pnpm run build && pnpm run postbuild; \
   else echo "Lockfile not found." && exit 1; \
   fi
 
